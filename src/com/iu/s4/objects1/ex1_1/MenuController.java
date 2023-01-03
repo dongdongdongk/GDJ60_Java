@@ -37,13 +37,13 @@ public class MenuController {
 			case 2:
 				Student student = si.findStudent(students);
 				if(student != null) {
-					sv.viewOne(student);
+					sv.view(student);
 				}else {
 					System.out.println("그런 학생은 없다.");
 				}
 				break;
 			case 3:
-				sv.viewList(students);
+				sv.view(students);
 				break;
 			default:
 				System.out.println("종료합니다");
