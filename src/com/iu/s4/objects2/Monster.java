@@ -8,6 +8,12 @@ public class Monster {
 	int hp;
 	int power;
 	
+	//Constructor
+	public Monster() {
+		//매개변수가 없는 생성자를 기본 생성자, default Constructor
+		System.out.println("생성자 실행");
+	}
+	
 	//멤버메서드,instance method
 	//공격
 	public boolean checkValue(Monster monster) {
