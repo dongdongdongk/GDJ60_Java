@@ -14,6 +14,6 @@ public class Main {
 		for(int i=0;i<4;i++) {
 			System.out.println(ar[i]);
 		}
-		
+		System.out.println("너무 어렵다");
 	}
 }
