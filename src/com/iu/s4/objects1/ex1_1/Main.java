@@ -8,7 +8,7 @@ public class Main {
 		
 		menuController.start();
 		
-
+		System.out.println("finish");
 	}
 
 }
