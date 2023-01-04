@@ -2,7 +2,7 @@ package com.iu.s4.objects4;
 
 public class God {
 
-	private String name;
+	private static final String MY_NAME;
 	
 	private static God god = new God();
 	
