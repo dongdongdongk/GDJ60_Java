@@ -14,6 +14,7 @@ public class Main {
 		
 		archer.attack();
 		
+		System.out.println("테스뚜");
 		//
 		
 	}
