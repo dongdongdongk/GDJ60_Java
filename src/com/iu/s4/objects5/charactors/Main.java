@@ -15,6 +15,8 @@ public class Main {
 		archer.attack();
 		
 		System.out.println("테스뚜");
+		
+		System.out.println("집에서 깃 테스트중 과연 학원에서도 이게 보일까???!!");
 		//
 		
 	}
