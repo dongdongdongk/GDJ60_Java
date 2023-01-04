@@ -5,6 +5,7 @@ public class Knight extends Character implements AttackAble {
 	int storng;
 	
 	Item item = new Staff();
+	Item item2 = new Sword();
 	
 	
 	
