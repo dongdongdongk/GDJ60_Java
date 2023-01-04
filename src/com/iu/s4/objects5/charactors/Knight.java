@@ -1,30 +1,19 @@
 package com.iu.s4.objects5.charactors;
 
-public class Archer extends Character implements AttackAble {
-	//field
-	private int dex;
+public class Knight extends Character implements AttackAble {
+
+	int storng;
 	
-	//constructor
-	public Archer() {
-		
-	}
+	Item item = new Staff();
 	
-	//method
+	
+	
+	
+	
 	@Override
 	public void attack() {
 		// TODO Auto-generated method stub
-		
-	}
-	
-	public void move() {
-		System.out.println("이동");
-	}
-	
-	public int getDex() {
-		return dex;
-	}
-	public void setDex(int dex) {
-		this.dex = dex;
+		item.a();
 	}
 
 	@Override

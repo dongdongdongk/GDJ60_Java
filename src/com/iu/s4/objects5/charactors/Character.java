@@ -7,9 +7,7 @@ public abstract class Character {
 	private int level;
 	
 	
-	//method
-	public abstract void attack(); 
-	
+	//method 
 	
 	public int getLevel() {
 		return level;
