@@ -15,7 +15,9 @@ public class Main {
 		robot = null;
 		
 		System.out.println("프로그램 종료");
-		
+		System.out.println("AddRobot에서 작업");
+		robot = new Robot();
+		System.out.println(robot);
 		//외부에서 객체를 만들어서 집어넣기 (약한결합) 
 		//내부에서 객체를 만들어서 넣기 
 		
