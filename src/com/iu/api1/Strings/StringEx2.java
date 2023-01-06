@@ -17,13 +17,13 @@ public class StringEx2 {
 		System.out.println(result);
 		
 		//확장자가 이미지인지 검증 
-		end:for(int i=0;i<names.length;i++) {
+		ed:for(int i=0;i<names.length;i++) {
 			if(result.equals(names[i])) {
 				System.out.println("정상 파일이다.");
 				break;
 			}else {
 				System.out.println("비정상");
-				break end;
+				break ed;
 			}
 			
 		}
