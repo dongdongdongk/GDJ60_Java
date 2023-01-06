@@ -17,5 +17,7 @@ public class StringStudy5 {
 //		}
 		str3 = str3.toUpperCase();
 		System.out.println(str3);
+		
+		
 	}
 }
