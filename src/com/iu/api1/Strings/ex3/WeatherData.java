@@ -32,12 +32,12 @@ public class WeatherData {
 		
 		return wethers;
 	 }
-	 public void initdiv() {
-		 for(int i=0;i<data.length();i++) {
-			 int p = 0;
-			 p++;
-		 }
-	 }
+//	 public void initdiv() {
+//		 for(int i=0;i<data.length();i++) {
+//			 int p = 0;
+//			 p++;
+//		 }
+//	 }
 	//data 에 있는 데이터를 파싱해서 각 데이터를 dto의 멤버 변수에 대입하고 dto리턴	
 }
 

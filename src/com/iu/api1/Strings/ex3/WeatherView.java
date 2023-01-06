@@ -7,8 +7,8 @@ public class WeatherView {
 	//1.모든 날씨 정보를 출력 
 	
 	//2.DTO 하나의 정보를 출력
-	WeatherDTO wetherDTO = new WeatherDTO();
-	
+	WeatherData wetherData = new WeatherData();
+
 	public void view(WeatherDTO [] datas) {
 		for(int i=0;i<datas.length;i++) {
 			this.view(datas[i]);
@@ -23,6 +23,13 @@ public class WeatherView {
 		System.out.println("Mise : " + weatherDTO.getMise());
 		
 	}
+	public void weatherView() {
+		for(int i=0;i<wetherDTO.length;i=i+4) {
+			System.out.println(wetherDTO[i].getCity());
+			System.out.println(wetherDTO[i].getStatus());
+		}
+	}
+	
 	
 	
 }
