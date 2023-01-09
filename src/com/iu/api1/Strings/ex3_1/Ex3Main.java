@@ -4,6 +4,10 @@ public class Ex3Main {
 
 	public static void main(String[] args) {
 		System.out.println("Start");
+
+		
+		WeatherController wc = new WeatherController(); //컨트롤러 객체생성
+		wc.start(); //컨트롤러 start 메소드 호출
 //		WeatherData weatherData =new WeatherData();
 //		WeatherDTO[] datas = weatherData.init();
 //		WeatherView weatherView = new WeatherView();
