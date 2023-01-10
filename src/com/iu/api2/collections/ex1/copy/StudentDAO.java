@@ -6,34 +6,37 @@ import java.util.StringTokenizer;
 public class StudentDAO {
 	
 	private StringBuffer sb;
-	
+		
 	public StudentDAO() {
 		this.sb = new StringBuffer();
-		
+			
 		sb.append("iu-1-90-60-70-");
 		sb.append("winter-2-86-84-75-");
 		sb.append("suji, 3, 89, 74, 87 ");
 		sb.append("choa, 4, 71, 25, 99 ");
-		
-		
-		
+						
+		}
+
+		//학생정보초기화 
+	public ArrayList<StudentDTO> intit() {
+		String data = this.sb.toString();
+		ArrayList<StudentDTO> ar = new ArrayList<>();
+		data = data.replace(" ", "-");
+		data = data.replace(",", "");
+		StringTokenizer st = new StringTokenizer(data, "-");
+		while(st.hasMoreTokens()) {
+			StudentDTO studentDTO = new StudentDTO();
+			studentDTO.setName(st.nextToken());
+			studentDTO.setNum(Integer.parseInt(st.nextToken()));
+			studentDTO.setKor(Integer.parseInt(st.nextToken()));
+			studentDTO.setEng(Integer.parseInt(st.nextToken()));
+			studentDTO.setMath(Integer.parseInt(st.nextToken()));
+			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+			studentDTO.setAvg(studentDTO.getTotal()/3.0);
+			ar.add(studentDTO);
+		}
+		return ar;
+
 	}
 	
-	public void init() {
-		StudentData sd = new StudentData();
-		ArrayList<String> arraylist = new ArrayList<String>();
-		String sb2 = sb.toString();
-		sb2 =sb2.replace(",", "");
-		sb2 = sb2.replace(" ","-");
-		StringTokenizer st = new StringTokenizer(sb2 ,"-");
-		int idx = 0;
-		while(st.hasMoreTokens()) {
-			 sd.setName(st);
-		
-			
-			System.out.println(st.nextToken());
-		}
-		
-	}
-
 }
