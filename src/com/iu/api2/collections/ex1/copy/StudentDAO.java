@@ -1,4 +1,4 @@
-package com.iu.api2.collections.ex1;
+package com.iu.api2.collections.ex1.copy;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
