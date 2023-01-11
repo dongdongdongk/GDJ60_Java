@@ -25,6 +25,7 @@ public class StudentController {
 		//3. 학생정보 검색조회(이름)
 		//4. 학생정보추가
 		//5. 학생정보삭제(이름)
+		//6. 학생정보를 빽업
 		while(check) {
 			System.out.println("1.학생정보 초기화");
 			System.out.println("2.학생정보 전체조회");
@@ -61,5 +62,6 @@ public class StudentController {
 			}
 		}
 		
+		}
 	}
 }
