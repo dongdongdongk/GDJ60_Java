@@ -1,4 +1,4 @@
-package com.iu.api3.exception;
+package com.iu.api3.exception.copy_1;
 
 import java.util.Random;
 
