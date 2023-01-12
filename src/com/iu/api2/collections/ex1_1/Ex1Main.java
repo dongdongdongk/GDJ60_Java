@@ -1,6 +1,8 @@
 package com.iu.api2.collections.ex1_1;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Ex1Main {
@@ -15,11 +17,9 @@ public class Ex1Main {
 		//5. 학생정보삭제(이름)
 		//6. 프로그램종료
 
-		//학생정보 백업
-		//현재시간을 파일명으로 해서 파일작성 
 		new StudentController().start();
 		
-//		File file = new File("C:\\fileTest", "a.txt");
+
 		
 		
 		//향상된 for

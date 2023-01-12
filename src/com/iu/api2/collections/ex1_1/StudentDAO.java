@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -28,10 +29,12 @@ public class StudentDAO {
 	//학생정보백업
 	//현재시간을 파일명으로 해서 파일작성
 	public void studentBackUp(ArrayList<StudentDTO> ar) {
+		//Calendar ca = new GregorianCalendar()
 		Calendar ca = Calendar.getInstance();
 		long time = ca.getTimeInMillis();
 		
-		File file = new File("C:\\fileTest",time+".txt"); 
+		
+		File file = new File("C:\\fileTest", time+".txt");
 		
 		FileWriter fw = null;
 		
@@ -66,13 +69,9 @@ public class StudentDAO {
 				e.printStackTrace();
 			}
 		}
+		
+		
 	}
-	
-	
-	
-	
-	
-	
 	
 	//학생정보삭제
 	public int removeStudent(ArrayList<StudentDTO> ar) {
@@ -144,54 +143,66 @@ public class StudentDAO {
 	
 	//학생정보초기화
 	public ArrayList<StudentDTO>  init() {
+		//String data = this.sb.toString();
+		File file = new File("C:\\fileTest");
 		
-		File file = new File("C:\\fileTest", "student.txt");
-		
-		FileReader fr = null;
-		BufferedReader br = null;
-		
-		try {
-		fr = new FileReader(file);
-		br = new BufferedReader(fr);
-		
-		String data = null;
-		while((data=br.readLine())!=null) {
+		String [] names = file.list();
+		long max=0;
+		for(String name:names) { //234.txt
+			name=name.substring(0, name.lastIndexOf("."));
+			long date = Long.parseLong(name);
+			
+			if(date>max) {
+				max=date;
+			}
 			
 		}
 		
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-			br.close();
-			}catch (Exception e) {
+		
+		
+		//1. 파일정보 File
+		file = new File(file, max+".txt");
+		
+		//2. 파일내용 읽기 위해서 연결 준비
+		FileReader fr = null;
+		BufferedReader br = null;
+		ArrayList<StudentDTO> ar = new ArrayList<>();
+		
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			String data=null;
+			while((data=br.readLine()) != null) {
+				data=data.replace(" ", "-");
+				data=data.replace(",", "");
+				StringTokenizer st = new StringTokenizer(data, "-");
+				
+				StudentDTO studentDTO = new StudentDTO();
+				studentDTO.setName(st.nextToken());
+				studentDTO.setNum(Integer.parseInt(st.nextToken()));
+				studentDTO.setKor(Integer.parseInt(st.nextToken()));
+				studentDTO.setEng(Integer.parseInt(st.nextToken()));
+				studentDTO.setMath(Integer.parseInt(st.nextToken()));
+				studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath() );
+				studentDTO.setAvg(studentDTO.getTotal()/3.0);
+				ar.add(studentDTO);
+				
+				
 				
 			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
-		
-		
-		
-		
-		
-		String data = this.sb.toString();
-		data=data.replace(" ", "-");
-		data=data.replace(",", "");
-		
-		System.out.println(data);
-		StringTokenizer st = new StringTokenizer(data, "-");
-		ArrayList<StudentDTO> ar = new ArrayList<>();
-		while(st.hasMoreTokens()) {
-			StudentDTO studentDTO = new StudentDTO();
-			studentDTO.setName(st.nextToken());
-			studentDTO.setNum(Integer.parseInt(st.nextToken()));
-			studentDTO.setKor(Integer.parseInt(st.nextToken()));
-			studentDTO.setEng(Integer.parseInt(st.nextToken()));
-			studentDTO.setMath(Integer.parseInt(st.nextToken()));
-			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath() );
-			studentDTO.setAvg(studentDTO.getTotal()/3.0);
-			ar.add(studentDTO);
-		}
-		
 		return ar;
 	}
 }

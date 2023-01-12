@@ -3,7 +3,7 @@ package com.iu.api2.collections.ex1_1;
 import java.util.ArrayList;
 
 public class StudentView {
-
+	
 	public void view(String msg) {
 		System.out.println(msg);
 	}
