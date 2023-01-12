@@ -19,7 +19,7 @@ public class Ex1Main {
 		//현재시간을 파일명으로 해서 파일작성 
 		new StudentController().start();
 		
-		File file = new File("C:\\fileTest", "a.txt");
+//		File file = new File("C:\\fileTest", "a.txt");
 		
 		
 		//향상된 for

@@ -1,6 +1,12 @@
 package com.iu.api2.collections.ex1_1;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -18,6 +24,55 @@ public class StudentDAO {
 		sb.append("suji, 3, 89, 74, 87 ");
 		sb.append("choa, 4, 71, 25, 99 ");
 	}
+	
+	//학생정보백업
+	//현재시간을 파일명으로 해서 파일작성
+	public void studentBackUp(ArrayList<StudentDTO> ar) {
+		Calendar ca = Calendar.getInstance();
+		long time = ca.getTimeInMillis();
+		
+		File file = new File("C:\\fileTest",time+".txt"); 
+		
+		FileWriter fw = null;
+		
+		try {
+			fw = new FileWriter(file);
+			
+			for(StudentDTO studentDTO : ar) {
+				StringBuffer sb = new StringBuffer();
+				sb.append(studentDTO.getName());
+				sb.append("-");
+				sb.append(studentDTO.getNum());
+				sb.append("-");
+				sb.append(studentDTO.getKor());
+				sb.append("-");
+				sb.append(studentDTO.getEng());
+				sb.append("-");
+				sb.append(studentDTO.getMath());
+				sb.append("\r\n");
+				
+				fw.write(sb.toString());
+				fw.flush();
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	//학생정보삭제
 	public int removeStudent(ArrayList<StudentDTO> ar) {
@@ -89,6 +144,35 @@ public class StudentDAO {
 	
 	//학생정보초기화
 	public ArrayList<StudentDTO>  init() {
+		
+		File file = new File("C:\\fileTest", "student.txt");
+		
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		try {
+		fr = new FileReader(file);
+		br = new BufferedReader(fr);
+		
+		String data = null;
+		while((data=br.readLine())!=null) {
+			
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+			br.close();
+			}catch (Exception e) {
+				
+			}
+		}
+		
+		
+		
+		
+		
 		String data = this.sb.toString();
 		data=data.replace(" ", "-");
 		data=data.replace(",", "");
