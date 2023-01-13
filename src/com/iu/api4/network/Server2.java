@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,6 +30,9 @@ public class Server2 {
 		BufferedWriter bw = null;
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
+		String [] llist = {"밥","빵","감"};
+		String [] nlist = {"면","배","국밥"};
+
 		try {
 			ss = new ServerSocket(8282);
 			System.out.println("클라이언트 접속 대기중");
@@ -49,28 +53,13 @@ public class Server2 {
 					System.out.println("종료");
 					break;
 				}else if(num==1) {
-					switch(rd) {
-					case 0:
-						js = "점심:밥";
-					case 1:
-						js = "점심:빵";
-					case 2:
-						js = "점심:떡";		
-					}
+					js = llist[rd];
+					break;
 				}else if(num==2) {
-					switch(rd) {
-					case 0:
-						js = "저녁:밥";
-					case 1:
-						js = "저녁:빵";
-					case 2:
-						js = "저녁:떡";
-					}
-				}
-				
+					js = nlist[rd];
+					break;
+				}	
 			}
-		
-		
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
