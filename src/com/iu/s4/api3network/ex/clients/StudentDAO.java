@@ -186,7 +186,7 @@ public class StudentDAO {
 		
 	}
 	
-	public void addStudent2() {
+	public String addStudent2() {
 		
 		String si;
 		System.out.println("이름을 입력");
@@ -199,6 +199,8 @@ public class StudentDAO {
 		si = si + "-" +sc.next();
 		System.out.println("수학점수를 입력");
 		si = si + "-" +sc.next();
+		System.out.println(si);
+		return si;
 	}
 	
 	//학생정보검색

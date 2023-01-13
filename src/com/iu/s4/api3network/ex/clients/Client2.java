@@ -80,10 +80,13 @@ public class Client2 {
 					
 				}else if(select==3) {
 					System.out.println("학생정보추가");
-					studentDAO.addStudent2();
-					bw.write(select + "-" + name + "\r\n");
+					data = studentDAO.addStudent2();
+					bw.write(select + "-" + data + "\r\n");
 					bw.flush();
+					System.out.println(br.readLine());
 					
+				}else if(select==4) {
+					System.out.println();
 				}
 				
 			}		
