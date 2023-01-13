@@ -86,15 +86,22 @@ public class Client2 {
 					System.out.println(br.readLine());
 					
 				}else if(select==4) {
-					System.out.println();
-				}
-				
-			}		
+					System.out.println("학생정보삭제");
+					data = studentDAO.addStudent2();
+					bw.write(select + "-" + data + "\r\n");
+					bw.flush();
+					System.out.println(br.readLine());
+				}else {
+					bw.write("5");
+					bw.flush();
+					check = false;
+					break;
+				}	
+			}
+			System.out.println("종료");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-
 }
