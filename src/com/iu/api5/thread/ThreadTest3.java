@@ -1,7 +1,8 @@
 package com.iu.api5.thread;
 
-public class ThreadTest3 {
+public class ThreadTest3 implements Runnable {
 
+	
 	private void t3() {
 		for(int i=0;i<25;i++) {
 			System.out.println("Hello : "+i);
@@ -12,6 +13,12 @@ public class ThreadTest3 {
 				e.printStackTrace();
 			}
 		}
+		
+	}
+
+	@Override
+	public void run() {
+		this.t3();
 		
 	}
 }
